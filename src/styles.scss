@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~@angular/material/theming";
 
 /* custom theme start*/
@@ -12,6 +12,9 @@ $theme: mat-light-theme($primary, $accent);
 
 /*custom theme end */
 
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 
 html, body {
   height: 100%;
@@ -19,5 +22,19 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f1f1ff;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.btn-facebook {
+  background: #4267b2;
+  color: white;
+}
+
+.btn-google {
+  background: #d44a3d;
+  color: white;
 }
