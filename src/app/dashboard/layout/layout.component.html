@@ -1,20 +1,36 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
-  </mat-toolbar>
-
-  <mat-sidenav-container class="example-sidenav-container"
+<div class="main-container" [class.layout-is-mobile]="mobileQuery.matches">
+  <mat-sidenav-container class="layout-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+    <mat-sidenav style="min-width: 300px" class="mat-elevation-z4 side-nav" #snav
+                 [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+      <div style="background-color: #1e2129" class="text-center text-white pt-5 pb-5">
+        <span class="d-block">Rizwan Ijaz</span>
+        <small>rizwanijaz@gmail.com</small>
+        <br><br>
+      </div>
+
+      <div class="text-center">
+        <img class="avatar-img-open" src="../../../assets/images/user.png">
+      </div>
+
+      <span class="ml-3">Navigation</span>
       <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        <app-nav-item *ngFor="let nav of fillerNav" [navItem]="nav"></app-nav-item>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+      <mat-toolbar class="layout-toolbar mat-elevation-z4">
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="layout-app-name">Task Manager</h1>
+      </mat-toolbar>
+
+      <h1 class="display-1">Hello</h1>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

@@ -1,0 +1,15 @@
+<a class="text-white" mat-list-item (click)="onClickNavigate()">
+  <mat-icon>{{navItem.icon}}</mat-icon>
+  {{navItem.name}}
+
+  <span fxFlex *ngIf="navItem.children" style="text-align: right">
+    <span fxFlex></span>
+    <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+      expand_more
+    </mat-icon>
+  </span>
+</a>
+
+<div [@openClose]="expanded? 'open':'closed'">
+  <app-nav-item *ngFor="let nav of navItem.children" [navItem]="nav"></app-nav-item>
+</div>
